@@ -1,11 +1,15 @@
-from controller import Controller
+from controller import Controller, CheckerRankAndSuitIndex
+from view import PlayerView, BroadcastView, InternetStreamingView
 from models import Deck
-from view import View
+
 
 def main():
     deck = Deck()
-    view = View()
-    game =Controller(deck, view)
+    views = (PlayerView(), BroadcastView(), InternetStreamingView())
+    checker = CheckerRankAndSuitIndex
+    game = Controller(deck, views, checker)
     game.run()
 
-main()
+
+if __name__ == "__main__":
+    main()

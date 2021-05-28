@@ -1,7 +1,9 @@
-import models
-import controller
+from models import *
+from controller import *
 
-class View:
+
+class PlayerView:
+
     def prompt_for_player(self):
         name = input("Tapez le nom du joueur: ")
         if not name:
@@ -32,3 +34,39 @@ class View:
         return True
 
 
+class BroadcastView:
+    def prompt_for_player(self):
+        return None
+
+    def show_player_hand(self, name, hand):
+        pass
+        # Implémentation possible
+
+    def prompt_for_flip_card(self):
+        return True
+
+    def show_winner(self, name):
+        pass
+        # Implémentation possible
+
+    def prompt_for_new_game(self):
+        return True
+
+
+class InternetStreamingView:
+    def prompt_for_player(self):
+        return None
+
+    def show_player_hand(self, name, hand):
+        pass
+        # Implémentation possible
+
+    def prompt_for_flip_card(self):
+        return True
+
+    def show_winner(self, name):
+        pass
+        # Implémentation possible
+
+    def prompt_for_new_game(self):
+        return True

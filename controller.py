@@ -1,33 +1,8 @@
-from models import *
-from view import *
+from typing import List
 
-
-class CheckerRankAndSuitIndex:
-    def check(self, players):
-        """Evalue la meilleur carte"""
-        last_player = self.players[0]
-        best_candidate = self.players[0]
-
-        for player in self.players[1:]:
-            player_card = player.hand[0]
-            last_player_card = last_player.hand[0]
-
-            score = (RANKS.index(player_card.rank), SUITS.index(player_card.suit))
-            last_score = (
-                RANKS.index(last_player_card.rank),
-                SUITS.index(last_player_card.suit),
-            )
-
-            if score[0] == last_score[0]:
-                if score[1] > last_score[1]:
-                    best_candidate = player
-            elif score[0] > last_score[0]:
-                best_candidate = player
-
-            last_player = player
-
-        return best_candidate.name
-
+from evaluate import CheckerRankAndSuitIndex
+from models import Deck
+from models import Player
 
 class Controller:
     """Définie le controleur"""
@@ -65,7 +40,7 @@ class Controller:
                 player.hand.append(card)
 
     def evaluate_game(self):
-        self.checker_strategy.check()
+        self.checker_strategy.check(self.players)
 
     def rebuilt_deck(self):
         for player in self.players:

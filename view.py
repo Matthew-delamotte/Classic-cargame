@@ -42,7 +42,7 @@ class BroadcastView:
         pass
         # Implémentation possible
 
-    def prompt_for_flip_card(self):
+    def prompt_for_flip_cards(self):
         return True
 
     def show_winner(self, name):
@@ -61,7 +61,7 @@ class InternetStreamingView:
         pass
         # Implémentation possible
 
-    def prompt_for_flip_card(self):
+    def prompt_for_flip_cards(self):
         return True
 
     def show_winner(self, name):
